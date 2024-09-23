@@ -35,7 +35,7 @@ class TestPlant:
             }
         )
         data = json.loads(response.data.decode())
-
+        # import ipdb; ipdb.set_trace()
         assert(type(data) == dict)
         assert(data["id"])
         assert(data["is_in_stock"] == False)

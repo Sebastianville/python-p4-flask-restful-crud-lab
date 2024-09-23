@@ -52,8 +52,9 @@ class PlantByID(Resource):
         plant = Plant.query.filter_by(id=id).first()
         for attr in data:
             setattr(plant, attr, data[attr])
-        db.sessision.add(plant)
+        db.session.add(plant)
         db.session.commit()
+        # import ipdb; ipdb.set_trace()
         return make_response(plant.to_dict(), 200)
     
     def delete(self, id):
